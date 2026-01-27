@@ -1,45 +1,47 @@
-import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { Link } from 'react-router-dom'
-import { 
-  Wallet, 
-  Building2, 
-  DollarSign, 
-  Globe, 
-  TrendingUp, 
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "react-router-dom";
+import {
+  Wallet,
+  Building2,
+  DollarSign,
+  Globe,
+  TrendingUp,
   Shield,
-  ChevronDown 
-} from 'lucide-react'
+  ChevronDown,
+} from "lucide-react";
+import LandingHeader from "@/components/layout/LandingHeader";
 
 const LandingPage = () => {
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  }
+    transition: { duration: 0.6 },
+  };
 
   const staggerContainer = {
     animate: {
       transition: {
-        staggerChildren: 0.1
-      }
-    }
-  }
+        staggerChildren: 0.1,
+      },
+    },
+  };
 
   return (
     <div className="min-h-screen bg-background">
+      <LandingHeader />
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background to-primary/5">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
-        
-        <motion.div 
+
+        <motion.div
           className="container mx-auto px-4 text-center relative z-10"
           initial="initial"
           animate="animate"
           variants={staggerContainer}
         >
-          <motion.h1 
+          <motion.h1
             className="text-5xl md:text-7xl font-display font-bold mb-6"
             variants={fadeInUp}
           >
@@ -49,19 +51,16 @@ const LandingPage = () => {
             <br />
             Whole Property
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
             variants={fadeInUp}
           >
-            Invest in premium Nigerian properties from as little as ₦10k. 
+            Invest in premium Nigerian properties from as little as ₦10k.
             Powered by blockchain.
           </motion.p>
-          
-          <motion.div 
-            className="flex gap-4 justify-center"
-            variants={fadeInUp}
-          >
+
+          <motion.div className="flex gap-4 justify-center" variants={fadeInUp}>
             <Button size="lg" asChild>
               <Link to="/waitlist">Join the waitlist</Link>
             </Button>
@@ -70,10 +69,7 @@ const LandingPage = () => {
             </Button>
           </motion.div>
 
-          <motion.div 
-            className="mt-12"
-            variants={fadeInUp}
-          >
+          <motion.div className="mt-12" variants={fadeInUp}>
             <ChevronDown className="w-8 h-8 mx-auto animate-bounce text-muted-foreground" />
           </motion.div>
         </motion.div>
@@ -81,13 +77,16 @@ const LandingPage = () => {
         {/* Property Images Strip */}
         <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-primary/20 to-transparent">
           <div className="h-full flex items-center overflow-hidden">
-            <motion.div 
+            <motion.div
               className="flex gap-4 px-4"
               animate={{ x: [0, -1000] }}
               transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
             >
               {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="w-64 h-40 bg-muted rounded-lg flex-shrink-0"></div>
+                <div
+                  key={i}
+                  className="w-64 h-40 bg-muted rounded-lg flex-shrink-0"
+                ></div>
               ))}
             </motion.div>
           </div>
@@ -107,8 +106,8 @@ const LandingPage = () => {
               How <span className="text-primary">Brikkle</span> Works
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A simple way to invest in real estate — sign up, buy property tokens, earn 
-              rent and sell when you want.
+              A simple way to invest in real estate — sign up, buy property
+              tokens, earn rent and sell when you want.
             </p>
           </motion.div>
 
@@ -116,24 +115,28 @@ const LandingPage = () => {
             {[
               {
                 icon: Wallet,
-                title: 'Sign Up & Get Your Wallet',
-                description: 'Create a free account. Brikkle automatically sets up a secure wallet for you — no crypto knowledge needed.'
+                title: "Sign Up & Get Your Wallet",
+                description:
+                  "Create a free account. Brikkle automatically sets up a secure wallet for you — no crypto knowledge needed.",
               },
               {
                 icon: Building2,
-                title: 'Explore Verified Properties',
-                description: 'Browse vetted, premium real estate listings. Sign-up form, see prices, projected rental income, and details.'
+                title: "Explore Verified Properties",
+                description:
+                  "Browse vetted, premium real estate listings. Sign-up form, see prices, projected rental income, and details.",
               },
               {
                 icon: DollarSign,
-                title: 'Invest from ₦10k',
-                description: 'Buy stakes (as little as ₦10,000 to ₦50,000) or more. Own a piece of real estate.'
+                title: "Invest from ₦10k",
+                description:
+                  "Buy stakes (as little as ₦10,000 to ₦50,000) or more. Own a piece of real estate.",
               },
               {
                 icon: TrendingUp,
-                title: 'Earn & Cash Out Anytime',
-                description: 'Receive rental income directly in your wallet. Sell your stakes whenever you\'re ready.'
-              }
+                title: "Earn & Cash Out Anytime",
+                description:
+                  "Receive rental income directly in your wallet. Sell your stakes whenever you're ready.",
+              },
             ].map((item, index) => (
               <motion.div
                 key={item.title}
@@ -170,7 +173,8 @@ const LandingPage = () => {
               Why Choose Brikkle
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Real estate investing, made easy — secure, affordable, transparent, and flexible.
+              Real estate investing, made easy — secure, affordable,
+              transparent, and flexible.
             </p>
           </motion.div>
 
@@ -178,24 +182,28 @@ const LandingPage = () => {
             {[
               {
                 icon: DollarSign,
-                title: 'Start Small, Grow Big',
-                description: 'No need to save millions — start with as little as ₦10k.'
+                title: "Start Small, Grow Big",
+                description:
+                  "No need to save millions — start with as little as ₦10k.",
               },
               {
                 icon: TrendingUp,
-                title: 'Monthly Passive Income',
-                description: 'Earn rental income directly to your wallet—no banks, no delays.'
+                title: "Monthly Passive Income",
+                description:
+                  "Earn rental income directly to your wallet—no banks, no delays.",
               },
               {
                 icon: Globe,
-                title: 'Global Access, Local Assets',
-                description: 'Invest in Nigerian properties from anywhere in the world.'
+                title: "Global Access, Local Assets",
+                description:
+                  "Invest in Nigerian properties from anywhere in the world.",
               },
               {
                 icon: Shield,
-                title: 'Full Transparency',
-                description: 'See all rental income directly to your wallet—no bugs, no delays.'
-              }
+                title: "Full Transparency",
+                description:
+                  "See all rental income directly to your wallet—no bugs, no delays.",
+              },
             ].map((item, index) => (
               <motion.div
                 key={item.title}
@@ -239,21 +247,24 @@ const LandingPage = () => {
           <div className="space-y-4">
             {[
               {
-                question: 'Do I need crypto experience?',
-                answer: 'No. Brikkle works with licensed partners and follows local laws.'
+                question: "Do I need crypto experience?",
+                answer:
+                  "No. Brikkle works with licensed partners and follows local laws.",
               },
               {
-                question: 'Is this legal in Nigeria?',
-                answer: 'Yes. Brikkle works with licensed partners and follows local laws.'
+                question: "Is this legal in Nigeria?",
+                answer:
+                  "Yes. Brikkle works with licensed partners and follows local laws.",
               },
               {
-                question: 'How do I get paid?',
-                answer: 'Rental income goes directly to your wallet. Withdraw to your bank or crypto wallet anytime.'
+                question: "How do I get paid?",
+                answer:
+                  "Rental income goes directly to your wallet. Withdraw to your bank or crypto wallet anytime.",
               },
               {
-                question: 'Can I cash out to Naira?',
-                answer: 'Yes. Withdraw to your local bank or crypto wallet.'
-              }
+                question: "Can I cash out to Naira?",
+                answer: "Yes. Withdraw to your local bank or crypto wallet.",
+              },
             ].map((faq, index) => (
               <motion.div
                 key={index}
@@ -264,7 +275,9 @@ const LandingPage = () => {
               >
                 <Card className="hover:shadow-md transition-shadow">
                   <CardContent className="p-6">
-                    <h3 className="text-lg font-semibold mb-2">{faq.question}</h3>
+                    <h3 className="text-lg font-semibold mb-2">
+                      {faq.question}
+                    </h3>
                     <p className="text-muted-foreground">{faq.answer}</p>
                   </CardContent>
                 </Card>
@@ -321,30 +334,35 @@ const LandingPage = () => {
             <div>
               <h3 className="font-semibold mb-4">Need help?</h3>
               <p className="text-sm text-muted-foreground">
-                Reach us at{' '}
-                <a href="mailto:support@brikkle.co" className="text-primary hover:underline">
+                Reach us at{" "}
+                <a
+                  href="mailto:support@brikkle.co"
+                  className="text-primary hover:underline"
+                >
                   support@brikkle.co
                 </a>
               </p>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Address</h3>
-              <p className="text-sm text-muted-foreground">
-                📍 Lagos Nigeria
-              </p>
+              <p className="text-sm text-muted-foreground">📍 Lagos Nigeria</p>
             </div>
           </div>
           <div className="mt-12 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
             <p>© 2026 Brikkle. All rights reserved.</p>
             <div className="flex gap-4">
-              <a href="#" className="hover:text-foreground">Terms used</a>
-              <a href="#" className="hover:text-foreground">Privacy policy</a>
+              <a href="#" className="hover:text-foreground">
+                Terms used
+              </a>
+              <a href="#" className="hover:text-foreground">
+                Privacy policy
+              </a>
             </div>
           </div>
         </div>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default LandingPage
+export default LandingPage;
