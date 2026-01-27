@@ -183,9 +183,9 @@ The project uses Shadcn/ui components which are:
 
 To add a new Shadcn component:
 
-```bash
-npx shadcn-ui@latest add [component-name]
-```
+ visit https://ui.shadcn.com/docs/components
+copy installation command e.g: `pnpm dlx shadcn@latest add switch` and follow guide
+checkout https://shadcnstore.com/cheatsheet/ to see list of variables needed to configure a component
 
 ## 🎯 Pages
 
