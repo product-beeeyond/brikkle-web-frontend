@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Sidebar from "@/components/layout/Sidebar";
-import Header from "@/components/layout/Header";
+import Header from "@/components/layout/DashboardHeader";
 import StatCard from "@/components/dashboard/StatCard";
 import EmptyState from "@/components/dashboard/EmptyState";
 import { Card, CardContent } from "@/components/ui/card";
@@ -16,7 +16,6 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen flex bg-background">
       <Sidebar />
-
       <div className="flex-1 flex flex-col">
         <Header />
 

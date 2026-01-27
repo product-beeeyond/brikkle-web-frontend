@@ -239,18 +239,18 @@ TanStack Query configuration provides:
 ### Spacing
 Uses Tailwind's default spacing scale (4px base)
 
-## 🚧 TODO / Future Enhancements
+## Best Practices
 
-- [ ] Add property marketplace page
-- [ ] Implement wallet management
-- [ ] Add governance/voting features
-- [ ] Implement KYC verification flow
-- [ ] Add transaction history with filtering
-- [ ] Implement real-time notifications
-- [ ] Add investment analytics dashboard
-- [ ] Implement social features (referrals)
-- [ ] Add multilingual support
-- [ ] Implement progressive web app (PWA) features
+Always define types - Use TypeScript for type safety
+Use semantic HTML - Improves accessibility
+Keep components small - Single responsibility principle
+Use custom hooks - Extract reusable logic
+Handle loading states - Show skeletons/spinners
+Handle error states - Show meaningful error messages
+Optimize images - Use proper formats and sizes
+Test on mobile - Ensure responsive design works
+Use aria labels - Improve screen reader support
+Follow file naming - PascalCase for components, camelCase for utilities
 
 ## 📄 License
 
