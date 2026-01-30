@@ -7,10 +7,12 @@ import { store } from "@/store";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import LoadingFallback from "@/components/LoadingFallback";
 import ProtectedRoute from "@/components/auth/ProtectedRoute";
+import { ThemeProvider } from "@/hooks/Theme/themeProvider";
+
 import "@/styles/globals.css";
 
 // Lazy load pages for code splitting
-const LandingPage = lazy(() => import("@/pages/LandingPage"));
+const LandingPage = lazy(() => import("@/pages/landingPage/LandingPage"));
 const LoginPage = lazy(() => import("@/pages/LoginPage"));
 const DashboardPage = lazy(() => import("@/pages/DashboardPage"));
 
@@ -19,25 +21,26 @@ function App() {
     <ErrorBoundary>
       <Provider store={store}>
         <QueryClientProvider client={queryClient}>
-          <BrowserRouter>
-            <Suspense fallback={<LoadingFallback />}>
-              <Routes>
-                {/* Public routes */}
-                <Route path="/" element={<LandingPage />} />
-                <Route path="/login" element={<LoginPage />} />
+          <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+            <BrowserRouter>
+              <Suspense fallback={<LoadingFallback />}>
+                <Routes>
+                  {/* Public routes */}
+                  <Route path="/" element={<LandingPage />} />
+                  <Route path="/login" element={<LoginPage />} />
 
-                {/* Protected routes */}
-                <Route
-                  path="/dashboard"
-                  element={
-                    // <ProtectedRoute>
+                  {/* Protected routes */}
+                  <Route
+                    path="/dashboard"
+                    element={
+                      // <ProtectedRoute>
                       <DashboardPage />
-                    // </ProtectedRoute>
-                  }
-                />
+                      // </ProtectedRoute>
+                    }
+                  />
 
-                {/* Future protected routes */}
-                {/* 
+                  {/* Future protected routes */}
+                  {/* 
                 <Route
                   path="/marketplace"
                   element={
@@ -55,9 +58,10 @@ function App() {
                   }
                 />
                 */}
-              </Routes>
-            </Suspense>
-          </BrowserRouter>
+                </Routes>
+              </Suspense>
+            </BrowserRouter>
+          </ThemeProvider>
         </QueryClientProvider>
       </Provider>
     </ErrorBoundary>

@@ -1,19 +1,17 @@
 import { Link } from "react-router-dom";
+import BrikkleIcon from "@/assets/icons/brikkleIcon.svg?react";
 
 const Footer = () => {
   return (
-    <footer className="bg-background border-t">
+    <footer className="bg-background min-h-[400px]">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8">
-                <svg width="17" height="23" viewBox="0 0 17 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fillRule="evenodd" clipRule="evenodd" d="M1.49133 -0.076355L16.5041 1.41483V20.8005H8.99758V11.8531H1.49133V-0.076355Z" fill="#5BFD4F"/>
-                  <path d="M7.4966 13.3443H-0.00964355V22.2914H7.4966V13.3443Z" fill="#5BFD4F"/>
-                </svg>
+            <div className="flex items-center mb-4">
+              <div >
+                <BrikkleIcon className="w-10 h-10" />
               </div>
-              <span className="text-xl font-bold font-display">Brikkle</span>
+              <span className="text-3xl font-bold font-display">Brikkle</span>
             </div>
             <p className="text-sm text-muted-foreground">
               A real estate platform
@@ -24,12 +22,18 @@ const Footer = () => {
             <h3 className="font-semibold mb-4">How it works</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <a href="#why-brikkle" className="hover:text-primary transition-colors">
+                <a
+                  href="#why-brikkle"
+                  className="hover:text-primary transition-colors"
+                >
                   Why Brikkle
                 </a>
               </li>
               <li>
-                <Link to="/faqs" className="hover:text-primary transition-colors">
+                <Link
+                  to="/faqs"
+                  className="hover:text-primary transition-colors"
+                >
                   FAQs
                 </Link>
               </li>
@@ -58,10 +62,16 @@ const Footer = () => {
         <div className="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
           <p>© 2025 Brikkle. All rights reserved.</p>
           <div className="flex gap-4">
-            <Link to="/terms" className="hover:text-foreground transition-colors">
+            <Link
+              to="/terms"
+              className="hover:text-foreground transition-colors"
+            >
               Terms used
             </Link>
-            <Link to="/privacy" className="hover:text-foreground transition-colors">
+            <Link
+              to="/privacy"
+              className="hover:text-foreground transition-colors"
+            >
               Privacy policy
             </Link>
           </div>
