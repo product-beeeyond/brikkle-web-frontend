@@ -48,7 +48,7 @@ const LandingPage = () => {
     <div className="min-h-screen bg-background">
       <Header />
       {/* Hero Section */}
-      <section className="relative min-h-screen flex-col items-center justify-center overflow-hidden pb-10 md:pt-30 sm:pt-36">
+      <section className="relative min-h-screen flex-col items-center justify-center overflow-hidden pb-10 pt-36">
         <div className="absolute inset-0 pointer-events-none ">
           {theme === "dark" ? (
             <GridBackground
