@@ -1,15 +1,12 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-// import { Card, CardContent } from "@/components/ui/card";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-// import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
-// import { Building2 } from "lucide-react";
 import Header from "@/components/layout/LandingHeader";
 import Footer from "@/components/layout/Footer";
 import GridBackground from "@/assets/images/gridBackground.svg?react";
@@ -18,7 +15,12 @@ import { useTheme } from "@/hooks/Theme/themeContext";
 import { steps } from "./constants";
 import { WhyChooseSection } from "@/components/landingpage/whyChooseBrikkle";
 import BrikkleIcon from "@/assets/icons/brikkleIcon.svg?react";
+import WaitlistDialog from "@/components/landingpage/WaitListDialog";
+import { useState } from "react";
+
 const LandingPage = () => {
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
+
   const { theme } = useTheme();
 
   const fadeInUp = {
@@ -47,8 +49,10 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <WaitlistDialog open={waitlistOpen} onOpenChange={setWaitlistOpen} />
+
       {/* Hero Section */}
-      <section className="relative min-h-screen flex-col items-center justify-center overflow-hidden pb-10 md:pt-30 sm:pt-36">
+      <section className="relative min-h-screen flex-col items-center justify-center overflow-hidden pt-36">
         <div className="absolute inset-0 pointer-events-none ">
           {theme === "dark" ? (
             <GridBackground
@@ -110,8 +114,9 @@ const LandingPage = () => {
                 variant="outline"
                 className="text-base px-8"
                 asChild
+                onClick={() => setWaitlistOpen(true)}
               >
-                <Link to="/dashboard">Join the waitlist</Link>
+                <p>Join the waitlist</p>
               </Button>
             </motion.div>
           </motion.div>
@@ -344,7 +349,11 @@ const LandingPage = () => {
             </p>
 
             <div className="max-w-md mx-auto">
-              <Button size="lg" className="h-12 px-8 bg-white dark:bg-primary text-primary dark:text-primary-foreground">
+              <Button
+                size="lg"
+                className="h-12 px-8 bg-white dark:bg-primary text-primary dark:text-primary-foreground"
+                onClick={() => setWaitlistOpen(true)}
+              >
                 Join the waitlist
               </Button>
             </div>

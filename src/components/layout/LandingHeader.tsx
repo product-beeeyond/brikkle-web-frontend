@@ -95,7 +95,7 @@ const Header = () => {
             {/* CTA desktop */}
             <div className="hidden md:block">
               <Button asChild>
-                <Link to="/waitlist">Join the waitlist</Link>
+                <Link to="/login">Login</Link>
               </Button>
             </div>
 
