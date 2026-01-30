@@ -6,7 +6,7 @@ import { queryClient } from "@/lib/queryClient";
 import { store } from "@/store";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import LoadingFallback from "@/components/LoadingFallback";
-import ProtectedRoute from "@/components/auth/ProtectedRoute";
+// import ProtectedRoute from "@/components/auth/ProtectedRoute";
 import { ThemeProvider } from "@/hooks/Theme/themeProvider";
 
 import "@/styles/globals.css";
