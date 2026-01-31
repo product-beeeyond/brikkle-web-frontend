@@ -2,27 +2,20 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import BrikkleIcon from "@/assets/icons/brikkleIcon.svg?react";
 // import { useTheme } from "@/hooks/Theme/useTheme";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { MoonStar, Sun, Menu } from "lucide-react";
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { useTheme } from '@/hooks/Theme/themeContext';
+import { useTheme } from "@/hooks/Theme/themeContext";
 
 const Header = () => {
-  const [changed, setChanged] = useState(false);
-  const { setTheme } = useTheme();
-
-  useEffect(() => {
-    setTheme(changed ? "dark" : "light");
-  }, [changed, setTheme]);
-
-  const handleClick = () => setChanged((v) => !v);
+  const { setTheme, theme } = useTheme();
 
   const ThemeButton = () => (
     <Button
       variant="wrapper"
       size="icon"
-      onClick={handleClick}
+      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
       className="relative group"
     >
       <Sun className="h-5 w-5 transition-all duration-300 text-foreground group-hover:text-violet-500 dark:-rotate-90 dark:scale-0" />
@@ -122,7 +115,7 @@ const Header = () => {
                   </a>
 
                   <Button asChild className="mt-4">
-                    <Link to="/waitlist">Join the waitlist</Link>
+                    <Link to="/login">Login</Link>
                   </Button>
                 </nav>
               </SheetContent>

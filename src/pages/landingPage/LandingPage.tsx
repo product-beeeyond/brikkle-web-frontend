@@ -52,7 +52,7 @@ const LandingPage = () => {
       <WaitlistDialog open={waitlistOpen} onOpenChange={setWaitlistOpen} />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex-col items-center justify-center overflow-hidden pt-36">
+      <section className="relative flex-col items-center justify-center overflow-hidden pt-36">
         <div className="absolute inset-0 pointer-events-none ">
           {theme === "dark" ? (
             <GridBackground
@@ -132,7 +132,7 @@ const LandingPage = () => {
               <motion.div
                 className="flex"
                 animate={{ x: [0, -1000] }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
               >
                 {[...propertyImages, ...propertyImages].map((img, i) => (
                   <div
@@ -148,7 +148,7 @@ const LandingPage = () => {
                 ))}
               </motion.div>
             </div>
-            <div className="bg-primary text-primary-foreground py-4 overflow-hidden">
+            <div className="dark:bg-tertiary bg-primary text-background py-4 overflow-hidden">
               <motion.div
                 className="whitespace-nowrap"
                 animate={{ x: ["0%", "-70%"] }}
