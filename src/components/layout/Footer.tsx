@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import BrikkleIcon from "@/assets/icons/brikkleIcon.svg?react";
-
+import MarkerPin from "@/assets/icons/markerPin1.svg?react";
 const Footer = () => {
   return (
     <footer className="bg-background min-h-[400px]">
@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="flex items-center mb-4">
-              <div >
+              <div>
                 <BrikkleIcon className="w-10 h-10" />
               </div>
               <span className="text-3xl font-bold font-display">Brikkle</span>
@@ -55,12 +55,15 @@ const Footer = () => {
 
           <div>
             <h3 className="font-semibold mb-4">Address</h3>
-            <p className="text-sm text-muted-foreground">📍 Lagos Nigeria</p>
+            <div className='flex gap-2'>
+              <MarkerPin className="h-5 w-5 text-muted-foreground" />
+              <p className="text-sm text-muted-foreground">Lagos Nigeria</p>
+            </div>
           </div>
         </div>
 
         <div className="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <p>© 2025 Brikkle. All rights reserved.</p>
+          <p>© 2026 Brikkle. All rights reserved.</p>
           <div className="flex gap-4">
             <Link
               to="/terms"

@@ -22,7 +22,7 @@ function App() {
     <ErrorBoundary>
       <Provider store={store}>
         <QueryClientProvider client={queryClient}>
-          <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+          <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
             <BrowserRouter>
               <Suspense fallback={<LoadingFallback />}>
                 <Routes>
