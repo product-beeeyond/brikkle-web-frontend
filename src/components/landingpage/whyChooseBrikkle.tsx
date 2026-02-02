@@ -75,16 +75,16 @@ export function WhyChooseSection() {
       </div>
 
       {/* Soft vignette for readability */}
-      {theme === "dark" ? (
+      {/* {theme === "dark" ? (
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(0,0,0,.25)_0%,transparent_40%,rgba(0,0,0,.15)_100%)]"
         />
-      ) : null}
+      ) : null} */}
 
       <div className="mx-auto max-w-6xl px-6 md:px-0">
         <div className="relative mb-14 text-center ">
-          {/* Eclipse gradient glow effect - Updated colors to match UI */}
+          {/* Eclipse gradient glow effect  */}
           {theme === "dark" ? (
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/4 w-full max-w-4xl aspect-[2/1]">
               <div
@@ -97,7 +97,8 @@ export function WhyChooseSection() {
                 aria-hidden="true"
               />
             </div>
-          ) : <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/4 w-full min-w-4xl aspect-[2/1]">
+          ) : (
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/4 w-full min-w-4xl aspect-[2/1]">
               <div
                 className="w-full h-full rounded-full opacity-50"
                 style={{
@@ -107,7 +108,8 @@ export function WhyChooseSection() {
                 }}
                 aria-hidden="true"
               />
-            </div>}
+            </div>
+          )}
 
           {/* Content */}
           <div className="relative z-10">
@@ -126,12 +128,12 @@ export function WhyChooseSection() {
           {features.map((f, i) => (
             <motion.div
               key={f.title}
-              initial={{
-                opacity: 0,
-                y: 50,
-                rotate: 0,
-                scale: 0.95,
-              }}
+              // initial={{
+              //   opacity: 0,
+              //   y: 50,
+              //   rotate: 0,
+              //   // scale: 0.95,
+              // }}
               animate={
                 isInView
                   ? {
@@ -156,31 +158,32 @@ export function WhyChooseSection() {
                             .replace("-translate-y-", "-"),
                         ) * 4 || 0,
                     }
-                  : {
-                      opacity: 0,
-                      y: 50,
-                      rotate: 0,
-                      scale: 0.95,
-                    }
+                  : false
+                // {
+                //     opacity: 0,
+                //     y: 50,
+                //     rotate: 0,
+                //     scale: 0.95,
+                //   }
               }
               whileHover={{
                 rotate: 0,
                 transition: {
-                  duration: 0.01,
+                  // duration: 0.01,
                   type: "spring",
-                  damping: 60,
-                  stiffness: 1000,
+                  damping: 100,
+                  stiffness: 2000,
                 },
               }}
               transition={{
-                duration: 0.1,
-                delay: i,
+                // duration: 0.01,
+                // delay: i,
                 type: "spring",
-                damping: 60,
-                stiffness: 1000,
+                damping: 100,
+                stiffness: 2000,
               }}
               className={[
-                "relative rounded-md bg-black1  bg-[hsl(220_10%_8%)]/95 p-6 mb-6 backdrop-blur",
+                "relative rounded-md bg-black1  bg-[hsl(220_10%_8%)]/95 p-6 mb-6 ",
                 "transition-transform md:p-7",
                 "sm:[transform:rotate(1deg)]",
               ].join(" ")}
@@ -203,10 +206,10 @@ export function WhyChooseSection() {
               <div className="relative z-10 mb-3 dark:text-tertiary">
                 <Check className="h-5 w-5" />
               </div>
-              <h3 className="relative z-10 mb-2 text-lg font-semibold text-primary dark:text-primary-foreground md:text-xl">
+              <h3 className="relative z-10 mb-2  text-xl  dark:text-white font-semibold text-primary  md:text-xl">
                 {f.title}
               </h3>
-              <p className="relative z-10 text-sm leading-relaxed dark:text-muted-foreground md:text-base">
+              <p className="relative z-10 text-sm leading-relaxed  dark:text-muted-foreground md:text-base">
                 {f.description}
               </p>
             </motion.div>

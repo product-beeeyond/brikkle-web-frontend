@@ -81,7 +81,7 @@ export default function WaitlistDialog({
           className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none  focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none"
         >
           <X className="h-4 w-4" />
-          {/* <span className="sr-only">Close</span> */}
+          <span className="sr-only">Close</span>
         </button>
 
         <AnimatePresence mode="wait">
@@ -167,13 +167,13 @@ export default function WaitlistDialog({
                   />
                 </div>
 
-                {joinWaitlistMutation.isError && (
+                {/* {joinWaitlistMutation.isError && (
                   <div className="bg-destructive/10 border border-destructive/20 rounded-md p-3">
                     <p className="text-sm text-destructive">
                       Failed to join waitlist. Please try again.
                     </p>
                   </div>
-                )}
+                )} */}
 
                 <Button
                   type="submit"
@@ -211,7 +211,7 @@ export default function WaitlistDialog({
                   animate={{ scale: 1 }}
                   transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
                 >
-                  <CheckCircle2 className="w-16 h-16 text-primary" />
+                  <CheckCircle2 className="w-16 h-16 text-tertiary" />
                 </motion.div>
 
                 <div className="space-y-2">

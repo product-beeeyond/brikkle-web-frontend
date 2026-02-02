@@ -18,8 +18,8 @@ const Header = () => {
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
       className="relative group"
     >
-      <Sun className="h-5 w-5 transition-all duration-300 text-foreground group-hover:text-violet-500 dark:-rotate-90 dark:scale-0" />
-      <MoonStar className="absolute h-5 w-5 transition-all duration-300 text-foreground group-hover:text-violet-500 rotate-90 scale-0 dark:rotate-0 dark:scale-100" />
+      <Sun className="h-5 w-5 transition-all duration-300 text-foreground group-hover:tertiary dark:-rotate-90 dark:scale-0" />
+      <MoonStar className="absolute h-5 w-5 transition-all duration-300 text-foreground group-hover:text-tertiary rotate-90 scale-0 dark:rotate-0 dark:scale-100" />
     </Button>
   );
 
@@ -58,19 +58,19 @@ const Header = () => {
           <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             <a
               href="#how-it-works"
-              className="text-sm hover:text-primary transition-colors"
+              className="text-sm hover:text-tertiary transition-colors"
             >
               How it works
             </a>
             <a
               href="#why-brikkle"
-              className="text-sm hover:text-primary transition-colors"
+              className="text-sm hover:text-tertiary transition-colors"
             >
               Why Brikkle
             </a>
             <a
               href="#faqs"
-              className="text-sm hover:text-primary transition-colors"
+              className="text-sm hover:text-tertiary transition-colors"
             >
               FAQs
             </a>
@@ -87,7 +87,7 @@ const Header = () => {
 
             {/* CTA desktop */}
             <div className="hidden md:block">
-              <Button asChild>
+              <Button>
                 <Link to="/login">Login</Link>
               </Button>
             </div>
@@ -103,14 +103,14 @@ const Header = () => {
                 <nav className="flex flex-col gap-6">
                   <a
                     href="#how-it-works"
-                    className="text-lg hover:text-primary"
+                    className="text-lg hover:text-tertiary"
                   >
                     How it works
                   </a>
-                  <a href="#why-brikkle" className="text-lg hover:text-primary">
+                  <a href="#why-brikkle" className="text-lg hover:text-tertiary">
                     Why Brikkle
                   </a>
-                  <a href="#faqs" className="text-lg hover:text-primary">
+                  <a href="#faqs" className="text-lg hover:text-tertiary">
                     FAQs
                   </a>
 

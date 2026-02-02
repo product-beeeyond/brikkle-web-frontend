@@ -113,10 +113,10 @@ const LandingPage = () => {
                 size="lg"
                 variant="outline"
                 className="text-base px-8"
-                asChild
+                // asChild
                 onClick={() => setWaitlistOpen(true)}
               >
-                <p>Join the waitlist</p>
+                Join the waitlist
               </Button>
             </motion.div>
           </motion.div>
@@ -351,7 +351,7 @@ const LandingPage = () => {
             <div className="max-w-md mx-auto">
               <Button
                 size="lg"
-                className="h-12 px-8 bg-white dark:bg-primary text-primary dark:text-primary-foreground"
+                className="h-12 px-8  text-primary dark:text-primary-foreground bg-white dark:bg-primary dark:hover:bg-tertiary dark:hover:text-black "
                 onClick={() => setWaitlistOpen(true)}
               >
                 Join the waitlist
