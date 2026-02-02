@@ -85,7 +85,7 @@ export default function WaitlistDialog({
         </button>
 
         <AnimatePresence mode="wait">
-          {isSuccess ? (
+          {!isSuccess ? (
             <motion.div
               key="form"
               initial={{ opacity: 0, y: 10 }}
