@@ -17,6 +17,24 @@ export interface PaginatedResponse<T> {
 }
 
 // ============================
+// Waitlist Types
+// ============================
+
+export interface WaitlistData {
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string
+}
+
+export interface WaitlistResponse {
+  id: string
+  position?: number
+  message: string
+}
+
+
+// ============================
 // Auth Types
 // ============================
 
