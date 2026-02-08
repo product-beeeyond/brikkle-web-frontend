@@ -51,6 +51,10 @@ export interface RegisterData {
   phone?: string
 }
 
+export interface ResetCredentials {
+  email: string
+}
+
 export interface AuthResponse {
   token: string
   user: User

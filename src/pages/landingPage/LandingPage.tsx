@@ -148,7 +148,7 @@ const LandingPage = () => {
                 ))}
               </motion.div>
             </div>
-            <div className="dark:bg-tertiary bg-primary text-background py-4 overflow-hidden">
+            <div className="dark:bg-tertiary bg-primary text-background font-medium py-4 overflow-hidden">
               <motion.div
                 className="whitespace-nowrap"
                 animate={{ x: ["0%", "-70%"] }}

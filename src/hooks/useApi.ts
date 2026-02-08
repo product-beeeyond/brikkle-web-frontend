@@ -49,6 +49,24 @@ export const useLogin = () => {
   });
 };
 
+export const useResetPassword = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (credentials: LoginCredentials) => {
+      const response = await apiClient.post<ApiResponse<AuthResponse>>(
+        endpoints.auth.login,
+        credentials,
+      );
+      return response.data.data;
+    },
+    onSuccess: (data) => {
+      localStorage.setItem("authToken", data.token);
+      queryClient.setQueryData(["user"], data.user);
+    },
+  });
+};
+
 export const useRegister = () => {
   return useMutation({
     mutationFn: async (data: RegisterData) => {
