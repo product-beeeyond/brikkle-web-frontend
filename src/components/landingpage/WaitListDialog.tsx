@@ -97,7 +97,11 @@ export default function WaitlistDialog({
           </div>
         )
       }
-      title={!joinWaitlistMutation.isSuccess ? " Join the Waitlist" : ""}
+      title={
+        !joinWaitlistMutation.isSuccess || !isSuccess
+          ? " Join the Waitlist"
+          : ""
+      }
       description={
         !joinWaitlistMutation.isSuccess
           ? "Be among the first to own real estate from as little as ₦10k"

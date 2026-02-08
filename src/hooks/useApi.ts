@@ -13,7 +13,6 @@ import {
   ApiResponse,
   PaginatedResponse,
 } from "@/types";
-import { toast } from "sonner";
 
 // ============================
 // Waitlist hooks
