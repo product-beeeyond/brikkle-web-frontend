@@ -13,6 +13,7 @@ import {
   ApiResponse,
   PaginatedResponse,
 } from "@/types";
+import { toast } from "sonner";
 
 // ============================
 // Waitlist hooks
@@ -46,6 +47,9 @@ export const useLogin = () => {
       localStorage.setItem("authToken", data.token);
       queryClient.setQueryData(["user"], data.user);
     },
+    // onError: (error) => {
+     
+    // },
   });
 };
 
