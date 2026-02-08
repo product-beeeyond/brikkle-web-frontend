@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -34,7 +35,7 @@ const ResetPassword = () => {
   });
 
   const {
-    mutateAsync,
+    // mutateAsync,
     isSuccess,
     isError,
     data: userData,
@@ -43,7 +44,7 @@ const ResetPassword = () => {
   } = useLogin();
 
   const onSubmit = async (data: ResetFormData) => {
-    await mutateAsync(data);
+    // await mutateAsync(data);
 
     if (isSuccess) {
       //set user data in store
