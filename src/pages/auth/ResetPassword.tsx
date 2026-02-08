@@ -11,28 +11,26 @@ import {
 } from "@/components/ui/card";
 import BrikkleIconEditable from "@/assets/icons/brikkleIconEditable.svg?react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Loader2 } from "lucide-react";
+import { ChevronLeft, Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useLogin } from "@/hooks/useApi";
 
-const loginSchema = z.object({
+const resetSchema = z.object({
   email: z.string().email("Invalid email address"),
-  password: z.string().min(8, "Password must be at least 8 characters"),
 });
 
-type LoginFormData = z.infer<typeof loginSchema>;
+type ResetFormData = z.infer<typeof resetSchema>;
 
-const LoginPage = () => {
-
+const ResetPassword = () => {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<LoginFormData>({
-    resolver: zodResolver(loginSchema),
+  } = useForm<ResetFormData>({
+    resolver: zodResolver(resetSchema),
   });
 
   const {
@@ -44,7 +42,7 @@ const LoginPage = () => {
     isPending,
   } = useLogin();
 
-  const onSubmit = async (data: LoginFormData) => {
+  const onSubmit = async (data: ResetFormData) => {
     await mutateAsync(data);
 
     if (isSuccess) {
@@ -69,26 +67,29 @@ const LoginPage = () => {
         className="w-full max-w-md"
       >
         <Link
-          to="/"
-          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors"
+          to="/login"
+          className="inline-flex items-center gap-2  hover:text-tertiary mb-8 transition-colors"
         >
-          <ArrowLeft className="w-4 h-4" />
+          <ChevronLeft className="w-6 h-6" />
           Go back
         </Link>
 
-        <Card className="backdrop-blur-sm bg-card/95">
-          <CardHeader className="text-center space-y-4">
-            <div className="flex justify-center">
-              <div className="items-center justify-center mx-auto text-primary dark:text-tertiary py-4">
-                <BrikkleIconEditable className="w-10 h-10 flex-shrink-0" />
+        <Card className="backdrop-blur-sm bg-card/95 border-none">
+          <CardHeader className="text-center space-y-4  ">
+            <div className="flex justify-center items-center  py-4">
+              <div className="items-center justify-center text-primary dark:text-tertiary">
+                <BrikkleIconEditable className="w-8 h-8 flex-shrink-0" />
               </div>
+              <p className="text-xl sm:text-xl font-bold font-display truncate">
+                Brikkle
+              </p>
             </div>
             <div>
-              <CardTitle className="text-2xl font-display">
-                Login to Account
+              <CardTitle className="text-2xl ">
+                Let's recover your account
               </CardTitle>
               <CardDescription className="mt-2">
-                Own Real Estate, Without Owning the Whole Property
+                Enter your email to recover your account
               </CardDescription>
             </div>
           </CardHeader>
@@ -99,7 +100,7 @@ const LoginPage = () => {
                 <Label htmlFor="email">Email</Label>
                 <Input
                   id="email"
-                  type="email"
+                  // type="email"
                   placeholder="youremail@gmail.com"
                   {...register("email")}
                   className={errors.email ? "border-destructive" : ""}
@@ -111,31 +112,7 @@ const LoginPage = () => {
                 )}
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
-                <Input
-                  id="password"
-                  type="password"
-                  placeholder="Password"
-                  {...register("password")}
-                  className={errors.password ? "border-destructive" : ""}
-                />
-                {errors.password && (
-                  <p className="text-sm text-destructive">
-                    {errors.password.message}
-                  </p>
-                )}
-              </div>
-
-              <div className="flex justify-end">
-                <Link
-                  to="/forgot-password"
-                  className="text-sm text-muted-foreground hover:text-tertiary transition-colors"
-                >
-                  Forgot password?
-                </Link>
-              </div>
-
+            
               <Button
                 type="submit"
                 className="w-full"
@@ -145,10 +122,10 @@ const LoginPage = () => {
                 {isSubmitting || isPending ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Logging in...
+                    Validating...
                   </>
                 ) : (
-                  "Login"
+                  "Continue"
                 )}
               </Button>
 
@@ -156,7 +133,7 @@ const LoginPage = () => {
                 First time here?{" "}
                 <Link
                   to="/signup"
-                  className="text-primary hover:underline hover:text-tertiary font-medium"
+                  className="text-foreground hover:text-tertiary font-medium"
                 >
                   Sign up
                 </Link>
@@ -164,15 +141,9 @@ const LoginPage = () => {
             </form>
           </CardContent>
         </Card>
-
-        <div className="mt-6 flex justify-center">
-          <button className="w-12 h-12 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors">
-            <span className="text-2xl">💬</span>
-          </button>
-        </div>
       </motion.div>
     </div>
   );
 };
 
-export default LoginPage;
+export default ResetPassword;

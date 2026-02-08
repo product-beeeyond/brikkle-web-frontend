@@ -13,11 +13,11 @@ import "@/styles/globals.css";
 
 // Lazy load pages for code splitting
 const LandingPage = lazy(() => import("@/pages/landingPage/LandingPage"));
-const LoginPage = lazy(() => import("@/pages/LoginPage"));
+const LoginPage = lazy(() => import("@/pages/auth/LoginPage"));
 const DashboardPage = lazy(() => import("@/pages/DashboardPage"));
+const ResetPassword = lazy(() => import("@/pages/auth/ResetPassword"));
 
 function App() {
-
   return (
     <ErrorBoundary>
       <Provider store={store}>
@@ -29,7 +29,7 @@ function App() {
                   {/* Public routes */}
                   <Route path="/" element={<LandingPage />} />
                   <Route path="/login" element={<LoginPage />} />
-
+                  <Route path="/reset-password" element={<ResetPassword />} />
                   {/* Protected routes */}
                   <Route
                     path="/dashboard"
