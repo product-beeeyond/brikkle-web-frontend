@@ -45,7 +45,7 @@ const ResetPassword = () => {
 
   const onSubmit = async (data: ResetFormData) => {
     // await mutateAsync(data);
-
+    console.log(data);
     if (isSuccess) {
       //set user data in store
       console.log("user data", userData);
@@ -113,7 +113,6 @@ const ResetPassword = () => {
                 )}
               </div>
 
-            
               <Button
                 type="submit"
                 className="w-full"
