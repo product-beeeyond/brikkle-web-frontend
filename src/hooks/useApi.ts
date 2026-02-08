@@ -46,6 +46,9 @@ export const useLogin = () => {
       localStorage.setItem("authToken", data.token);
       queryClient.setQueryData(["user"], data.user);
     },
+    // onError: (error) => {
+     
+    // },
   });
 };
 

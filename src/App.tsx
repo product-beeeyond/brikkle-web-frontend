@@ -8,7 +8,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import LoadingFallback from "@/components/LoadingFallback";
 // import ProtectedRoute from "@/components/auth/ProtectedRoute";
 import { ThemeProvider } from "@/hooks/Theme/themeProvider";
-
+import { Toaster } from "@/components/ui/sonner";
 import "@/styles/globals.css";
 
 // Lazy load pages for code splitting
@@ -25,6 +25,7 @@ function App() {
           <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
             <BrowserRouter>
               <Suspense fallback={<LoadingFallback />}>
+                <Toaster />
                 <Routes>
                   {/* Public routes */}
                   <Route path="/" element={<LandingPage />} />
